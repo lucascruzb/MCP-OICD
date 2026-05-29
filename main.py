@@ -2,6 +2,11 @@ import os
 from fastmcp.server import FastMCP, create_proxy
 from fastmcp.server.auth.oidc_proxy import OIDCProxy
 import logging
+from dotenv import load_dotenv
+
+load_dotenv()
+
+scopes = os.environ.get("REQUIRED_SCOPES")
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -15,12 +20,7 @@ auth = OIDCProxy(
     client_id=os.environ.get("AUTH0_CLIENT_ID"),
     client_secret=os.environ.get("AUTH0_CLIENT_SECRET"),
     base_url=os.environ.get("BASE_URL", "https://localhost:8000"),
-    required_scopes= [
-    "openid",
-    "profile",
-    "email",
-    "offline_access"
-  ]
+    required_scopes= [scopes]
     )
 
 config = {

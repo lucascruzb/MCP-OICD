@@ -1,6 +1,6 @@
 import os
-from fastmcp.server import FastMCP, create_proxy
-from fastmcp.server.auth.oidc_proxy import OIDCProxy
+from fastmcp.server import create_proxy
+from fastmcp.server.auth.providers.azure import AzureProvider
 import logging
 from dotenv import load_dotenv
 
@@ -15,10 +15,10 @@ logging.getLogger("mcp").setLevel(logging.DEBUG)
 logging.getLogger("httpx").setLevel(logging.DEBUG)
 logging.getLogger("httpcore").setLevel(logging.DEBUG)
 
-auth = OIDCProxy(
-    config_url=os.environ.get("AUTH0_CONFIG_URL"),
+auth = AzureProvider(
     client_id=os.environ.get("AUTH0_CLIENT_ID"),
     client_secret=os.environ.get("AUTH0_CLIENT_SECRET"),
+    tenant_id=os.environ.get("TENANT_ID"),
     base_url=os.environ.get("BASE_URL", "https://localhost:8000"),
     required_scopes= [scopes]
     )

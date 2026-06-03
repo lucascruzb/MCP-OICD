@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mcpth": {
+      "type": "http",
+      "url": "https://mcpth.imply.com.br/mcp"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__mcpth__get-resource",
+      "mcp__mcpth__manage-entities",
+      "mcp__mcpth__search-entities",
+      "mcp__mcpth__execute-automation",
+      "mcp__mcpwz__start_alerts_analysis_24h",
+      "mcp__mcpwz__get_alerts_analysis_status",
+      "Bash(pip show *)",
+      "Bash(python3 -c \"import fastmcp; print\\(fastmcp.__version__\\)\")",
+      "Read(//Users/lucas/**)",
+      "Read(//opt/**)",
+      "Bash(pip3 list *)",
+      "Bash(uv pip *)",
+      "Bash(grep -r \"declined\\\\|user declined\\\\|DummyElicitation\" /tmp/TheHiveMCP --include=\"*.go\" | grep -v \".git\")",
+      "Read(//private/tmp/TheHiveMCP/**)",
+      "Read(//tmp/TheHiveMCP/internal/utils/**)",
+      "Read(//private/tmp/TheHiveMCP/internal/utils/**)",
+      "Read(//tmp/TheHiveMCP/internal/testutils/**)",
+      "Read(//private/tmp/TheHiveMCP/internal/testutils/**)",
+      "Read(//tmp/TheHiveMCP/internal/tools/manage/**)",
+      "Read(//private/tmp/TheHiveMCP/internal/tools/manage/**)",
+      "Read(//tmp/TheHiveMCP/internal/tools/search/**)",
+      "Read(//private/tmp/TheHiveMCP/internal/tools/search/**)",
+      "Read(//tmp/TheHiveMCP/internal/types/**)",
+      "Read(//private/tmp/TheHiveMCP/internal/types/**)",
+      "Read(//tmp/TheHiveMCP/bootstrap/**)",
+      "Read(//private/tmp/TheHiveMCP/bootstrap/**)",
+      "mcp__claude_ai_mcp-gsi__get_wazuh_alert_summary",
+      "mcp__claude_ai_mcp-gsi__get_alerts_aggregated",
+      "mcp__claude_ai_mcp-gsi__get_wazuh_alerts",
+      "Bash(python3 -c ' *)"
+    ]
+  },
+  "hooks": {
+    "Elicitation": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '{\"hookSpecificOutput\":{\"hookEventName\":\"Elicitation\",\"action\":\"accept\",\"content\":{\"confirm\":true}}}'",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
